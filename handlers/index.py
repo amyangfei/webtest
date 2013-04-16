@@ -26,7 +26,7 @@ class LoginHandler(BaseHandler):
             self.set_current_user(user.uemail)
             self.redirect("/")
         else:
-            self.redirect("/login")
+            self.redirect("/index/login")
             
 class LogoutHandler(BaseHandler):
     def get(self):
