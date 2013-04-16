@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Home Page</title>
+    <link href="/static/css/index.css" media="screen" rel="stylesheet"
+    type="text/css" />
+</head>
+  
+<body>
+	<div class="div-logo">
+	   <h1 class="logo"></h1>
+	</div>
+	
+	{% if user is None %}
+	<div class="nav login">
+	   <a href="/index/login">Login</a>
+	</div>
+	{% else %}
+	   <div class="nav login">
+       <a href="/index/logout">Logout</a>
+    </div>
+	{% end %}
+	
+	{% if user is not None %}
+	<div class="user">
+	   <img src="{{ avatar_base }}{{ user.uavatar }}" id="gravatar" width="50" height="50" class="avatar">
+	</div>
+	<div>
+	<span class="welcome">欢迎回来 {{ user.uname }} 同学</span>
+	</div>
+	{% end %}
+	
+	<div class="next">
+        <a id="next" href="">
+            <span class="arrow"></span>
+            <span class="text">Enjoy</span>
+        </a>
+    </div>
+    
+    <script src="/static/js/jquery-1.8.2.min.js"></script>
+</body>
+</html>

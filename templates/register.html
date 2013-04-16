@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://twitter.github.com/bootstrap/examples/signin.html -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/static/css/zoo.css" rel="stylesheet">
+    <script type="text/javascript" src="/static/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/static/js/index.js"></script>
+
+    <body>
+      <div id="main-index" class="welcome">
+        <div class="content-s signup">
+          <h2 class="title">直接生成一枚完整版的入场券！</h2>
+          
+          <form id="register-form" enctype="multipart/form-data" action="/index/register" method="post">
+
+            <div class="info-box no clearfix">
+              <p class="f-gray clearfix">
+              </p>
+              <div class="user">
+                <img src="/static/images/avatar.png" id="gravatar" width="50" height="50" class="avatar">
+              </div>
+              你好，欢迎来到鸸鹋动物园：
+              <span class="b-r f-12">已经有入场券了？<a href="/index/login">点击这里登录</a></span>
+              <p></p>
+              <span class="info-s">补全以下信息就可以添加宠物、参与活动、享受福利、畅游动物园 ↓</span>
+            </div>
+
+            <div class="info-box">
+                <span class="f-r f-gray">称号</span>
+                <input id="id_username" type="text" class="input-s" name="username" maxlength="16">
+                
+                <span class="info-s" id="tip_username">你自己的称号，不是你们家宠物的...</span>
+                
+            </div>
+
+            <div class="info-box">
+                <span class="f-r f-gray">邮箱</span>
+                <input id="id_email" type="text" class="input-s" name="email">
+                
+                <span class="info-s" id="tip_email">请使用 <em class="f-brown">有效的邮箱地址</em> 进行注册以方便找回密码</span>
+                
+            </div>
+
+            <div class="info-box">
+                <span class="f-r f-gray">密码</span>
+                <input id="id_password1" type="password" class="input-s" name="password1" maxlength="18">
+                <span class="info-s" id="tip_password1">6-18位，可使用字母和数字的组合，请牢记...</span>         
+            </div>
+
+            <div class="info-box">
+                <span class="f-r f-gray">确认密码</span>
+                <input id="id_password2" type="password" class="input-s" name="password2">
+                <span class="info-s" id="tip_password2">重复输入密码</span>         
+            </div>
+
+            <div class="btn-box">
+              <a href="#" class="btn-o" id="link_submit"><span>完成注册</span></a>
+              » 之后的下一步，可以继续添加你的宠物信息
+            </div>
+            <input style="position:absolute;left:-1000px" type="submit" value="">
+          </form>
+      </div>
+    </div>
+
+  </body>
+</html>

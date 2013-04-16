@@ -1,0 +1,147 @@
+html{background-color:#f5eee4;}
+body{font-family:Tahoma,Geneva,sans-serif;font-size:12px;line-height:150%;color:#666;}
+
+#main-index	{margin:auto;width:980px;padding-top:20px;padding-right:0px;padding-bottom:20px;padding-left:0px;background-image:url(/static/images/body.png);background-repeat:repeat-y;background-position:center top;}
+
+.content-s {
+	margin-bottom: 25px;
+	padding-top: 40px;
+	padding-right: 100px;
+	padding-bottom: 20px;
+	padding-left: 100px;
+}
+
+/*  标题 > */
+
+h2{height:35px;text-shadow:1px 1px 0 #F7F9FB;font-family:"MicroSoft YaHei",SimHei;font-size:14px;line-height:34px;color:#777;margin-bottom:5px;}
+h2.title {
+	color: #C3845B;
+	font: normal 16px/29px "MicroSoft YaHei",SimHei;
+	height: 30px;
+	margin-bottom: 28px;
+	text-shadow: 1px 1px 0 #F7F9FB;
+	background-image: url(/static/images/line.png);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+}
+
+.info-box:hover {background-color: #F8F9FA;}
+.talk .info-box:hover {background-color: #fdfdfd;}
+.info-box span.f-r {
+	width: 80px;
+	display: inline-block;
+	float: left;
+	vertical-align: middle;
+	padding-right: 5px;
+}
+.openreg-l .info-box span.f-r {
+	width: 50px;
+}
+
+.info-box a{color: #71AFD0;}
+.info-box a:hover{color: #F66;}
+.info-box .info-s {
+	padding-left: 5px;
+}
+.info-box {
+	line-height: 30px;
+	font-size: 14px;
+	color: #777;
+	margin-left:30px;
+	padding-top: 7px;
+	padding-bottom: 5px;
+	border-radius: 5px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.info-box a span{
+	font-size: 12px;
+}
+.info-box span.f-m {
+width: 70px;
+display: inline-block;
+float: left;
+}
+.info-box select {
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+border: 1px solid #C9C9C9;
+font-size: 12px;
+height: 28px;
+color: #777;
+padding: 5px;
+}
+
+
+/*  颜色 > */
+.f-red{color:#f66;}
+.f-brown{color:#b27723;}
+.f-green{color:#93c366;}
+.f-gray{color:#999;}
+.f-snow{color:#ccc;}
+
+
+/*  位置 > */
+.f-l{text-align:left;}
+.f-r{text-align:right;}
+.f-m{text-align:center;}
+.b-r{float:right;}
+.b-l{float:left;}
+
+/*  大小 > */
+.f-16{font-size:16px;}
+.f-14{font-size:14px;}
+.f-12{font-size:12px;}
+.f-9{font-size:9px;-webkit-text-size-adjust:none;}
+
+
+.input-s{-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;border:1px solid #C9C9C9;font-size:14px;height:18px;width:205px;color:#ccc;background-image:url(/static/images/line-g.png);background-repeat:repeat-x;background-position:left -1px;padding:5px;margin-left:5px}
+.input-s:focus{background-color:#fffcc6;-moz-box-shadow:0 0 5px rgba(128,128,160,0.5);-webkit-box-shadow:0 0 5px rgba(128,128,160,0.5);box-shadow:0 0 5px rgba(128,128,160,0.5);border:1px solid rgba(128,128,160,0.6);outline:medium none;background-image:none;color:#71AFD0;}
+.info-s {
+color: #999;
+font-size: 12px;
+line-height: 32px;}
+.info-box .info-s {
+	padding-left: 5px;
+}
+
+.btn-box {
+	line-height: 30px;
+	color: #aaa;
+	margin-left:120px;
+	padding-top: 20px;
+	}
+.openreg-l .btn-box {
+	line-height: 30px;
+	color: #aaa;
+	margin-left:60px;
+	padding-top: 5px;
+	}
+.btn-box a {
+		color: #aaa;
+	}
+.btn-box a:hover {
+		color: #729EBA;
+	}
+
+/* 橘色圆角按钮样式 */
+.btn-o, .btn-o *{cursor:pointer;display:inline-block;height:32px;background:url(/static/images/btn-2012.png) no-repeat 0 0;color:#fff;text-shadow: 1px 1px 0 #f0776c;}
+.btn-o{display:inline-block;height:32px;padding-left:10px;margin-right:5px;}
+.btn-o span{padding-right:10px;background-position:right 0;line-height:29px;line-height:31px\9;}
+.btn-o:hover{background-position:left -32px;text-decoration: none;}
+.btn-o:hover span{background-position:right -32px;}
+
+img.avatar {
+    float: left;
+    margin-right: 12px;
+    
+    -moz-border-radius: 25px;
+    -khtml-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;    
+    -webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .4), inset 0 1px 2px rgba(0, 0, 0, .1), inset 0 1px 4px rgba(0, 0, 0, .1);
+    -moz-box-shadow:0 1px 0 rgba(255, 255, 255, .4), inset 0 1px 2px rgba(0, 0, 0, .1), inset 0 1px 4px rgba(0, 0, 0, .1);
+    box-shadow:0 1px 0px rgba(255, 255, 255, .4), inset 0 1px 2px rgba(0, 0, 0, .1), inset 0 1px 4px rgba(0, 0, 0, .1);
+}

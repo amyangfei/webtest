@@ -1,0 +1,6 @@
+*.pyc
+tornado/*
+*.pyo
+*~
+.settings/*
+.DS_Store
