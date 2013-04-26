@@ -27,3 +27,19 @@ class BaseHandler(tornado.web.RequestHandler):
             self.set_secure_cookie("user", tornado.escape.json_encode(user_email))
         else:
             self.clear_cookie("user")
+    
+    def get_weibo_oacode(self):
+        weibo_code_json = self.get_secure_cookie("weibo_oacode")
+        
+        if weibo_code_json:
+            return tornado.escape.json_decode(weibo_code_json)
+        else:
+            return None
+    
+    def set_weibo_oacode(self, weibo_oacode):
+        print "setting weibo_oacode"
+        if weibo_oacode:
+            self.set_secure_cookie("weibo_oacode", tornado.escape.json_encode(weibo_oacode))
+        else:
+            self.clear_cookie("weibo_oacode")
+            

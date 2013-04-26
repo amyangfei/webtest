@@ -24,7 +24,9 @@
 	
 	{% if user is not None %}
 	<div class="user">
-	   <img src="{{ avatar_base }}{{ user.uavatar }}" id="gravatar" width="50" height="50" class="avatar">
+	   <a href="/index/avatarupload">
+	       <img src="{{ avatar_base }}{{ user.uavatar }}" id="gravatar" width="50" height="50" class="avatar">
+	   </a>
 	</div>
 	<div>
 	<span class="welcome">欢迎回来 {{ user.uname }} 同学</span>

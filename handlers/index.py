@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
 from tornado import escape
-from model.models import User
+from model.models import User, AvatarChange
 from handlers.base import BaseHandler
 from utils import gravatar
+from utils import weibo
 from datetime import datetime
-import re
+import re, StringIO, time
+from PIL import Image
 
 class IndexHandler(BaseHandler):
     def get(self):
@@ -104,4 +106,61 @@ class SignupSuccessHandler(BaseHandler):
         user_email = self.get_current_user()
         _user = self.session.query(User).filter_by(uemail = user_email).first()
         self.render('signup_success.html', user=_user, avatar_base=gravatar.gravatar_base)
+
+class AvatarUploadHandler(BaseHandler):
+    def get(self):
+        user_email = self.get_current_user()
+        user = self.session.query(User).filter_by(uemail = user_email).first()
+        local_avatar = None if None==user else user.ulocalavatar    
+        self.render("avatar_upload.html", avatar_href=local_avatar)
+    def post(self):
+        file_dict_list = self.request.files.get('upavatar')
+        user_email = self.get_current_user()
+        user = self.session.query(User).filter_by(uemail = user_email).first()
+        userid = None if None==user else user.uid
+        filename = None
+        imgAngle = -int(self.get_argument('hideAngle'))
+        if None != file_dict_list and len(file_dict_list) > 0:
+            file_dict = file_dict_list[0]
+            filename = file_dict["filename"] if None==userid else str(userid)+'.'+file_dict["filename"].split('.').pop()
+            filepath = "./static/upload/avatar/"+filename
+            f = StringIO.StringIO(file_dict["body"])
+            ori_img = Image.open(f)    
+            rot_img = ori_img.rotate(imgAngle)
+            rot_img.save(filepath)
+            
+            if None != user:
+                user.ulocalavatar = filename
+            self.session.commit()
+        
+        weibo_oacode = self.get_weibo_oacode()
+        if None != weibo_oacode:
+            client = weibo.PrepareOAuthClient(weibo_oacode)
+            post_ret = client.statuses.update.post(status=u'快来看我在鸸鹋上传了新头像！http://www.ermiao.com '+str(datetime.now()))
+            time.sleep(2)
+            midstr = client.statuses.querymid.get(id=int(post_ret['idstr']), type=1)['mid']
+
+            user_email = self.get_current_user()
+            user = self.session.query(User).filter_by(uemail = user_email).first()
+            avatar_log = AvatarChange()
+            if None != user:
+                avatar_log.cuid = user.uid
+            avatar_log.cweibourl = 'weibo.com/' + str(post_ret['user']['id']) + '/' + midstr
+            self.session.add(avatar_log)
+            self.session.commit()
+            
+        self.render('avatar_upload.html', avatar_href=filename)
+
+class OauthWeiboHandler(BaseHandler):
+    def get(self):
+        oauth_url = weibo.PrepareOAuthUrl()
+        self.redirect(oauth_url)
+
+class WeiboCallbackHandler(BaseHandler):
+    def get(self):
+        oauth_code = self.get_argument('code')
+        self.set_weibo_oacode(oauth_code)
+        self.redirect('/')
+        
+        
         

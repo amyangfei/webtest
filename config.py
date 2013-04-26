@@ -6,3 +6,7 @@ mysql_config = {
 }
 
 static_avatar_path = '/var/www/webtest/avatar'
+
+APP_KEY = '665287865'
+APP_SECRET = ''
+CALLBACK_URL = 'http://127.0.0.1:8888/callback/weibo'

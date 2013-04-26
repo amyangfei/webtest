@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Upload avatar</title>
+    <script type="text/javascript" src="/static/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/static/js/avatar.js"></script>
+    <script type="text/javascript" src="/static/js/jQueryRotate.2.2.js"></script>
+</head>
+<body>
+    <form id="upavatar-form" action="/index/avatarupload" enctype="multipart/form-data" method="post">
+    <br><br><br>
+    <input name="upavatar" id="upavatar" type="file">
+    <input id="upload-submit" type="submit" value="submit" style="display:none">
+    <br><br><br>
+    <div>
+	    <div style="margin:10px;float:left">
+	        <img id="uploadPreview" {% if avatar_href is not None %}src="/static/upload/avatar/{{ avatar_href }}"{% end %} style=""/>
+	        <br>
+	        Original Avatar
+	    </div>
+	    <div style="margin:10px;float:left">
+	        <img id="uploadPreview-140" {% if avatar_href is not None %}src="/static/upload/avatar/{{ avatar_href }}"{% end %} style="width: 140px; height: 140px;" />
+	        <br>140x140
+	    </div>
+	    <div style="margin:10px;float:left">
+	        <img id="uploadPreview-50" {% if avatar_href is not None %}src="/static/upload/avatar/{{ avatar_href }}"{% end %} style="width: 50px; height: 50px;" />
+	        <br>50x50
+	    </div>
+	</div>
+	<br>
+    <div style="margin:10px;clear:both;">
+	    <button id="rotateLeft" type="button">Rotate Left</button>
+	    &nbsp;&nbsp;
+	    <button id="rotateRight" type="button">Rotate Right</button>
+	    <input type="hidden" id="hideAngle" name="hideAngle" value="0">
+    </div>
+    </form>
+</body>
+</html>
